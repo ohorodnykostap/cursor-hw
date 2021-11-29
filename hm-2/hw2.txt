@@ -1,0 +1,215 @@
+1) ostap@ostap-Lenovo-V15-IIL:~$ mkdir cursor_git_hw
+2) ostap@ostap-Lenovo-V15-IIL:~$ cd cursor_git_hw/
+3) ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ touch first.txt
+4) ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git add first.txt 
+	ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git status
+	На гілці master
+
+	Ще немає комітів
+
+	Зміни, що мають бути збережені в коміті
+ 	 (використовуйте "git rm --cached <file>..." що прибрати з буфера)
+		новий файл:    first.txt
+5)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git commit -m"adding first.txt"
+	[master (кореневий коміт) 1a717e1] adding first.txt
+ 	1 file changed, 0 insertions(+), 0 deletions(-)
+ 	create mode 100644 first.txt
+6)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git log
+	commit 1a717e167d18ca724d0d7dc483b361cbb565fd67 (HEAD -> master)
+	Author: Ostap Ohorodnyk <ostap.ohorodnyk@gmail.com>
+	Date:   Mon Nov 29 20:47:54 2021 +0200
+
+  	adding first.txt
+7)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ touch second.txt
+	ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ ls
+	first.txt  second.txt
+8)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git add second.txt
+	ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git status
+	На гілці master
+	Зміни, що мають бути збережені в коміті
+ 	 (use "git restore --staged <file>..." to unstage)
+	новий файл:    second.txt
+9)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git commit -m"adding second.txt"
+	[master e63a2b1] adding second.txt
+ 	1 file changed, 0 insertions(+), 0 deletions(-)
+	create mode 100644 second.txt
+10)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ rm first.txt
+	ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ ls
+	second.txt
+11)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git add first.txt 
+12)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git commit -m"removing first.txt"
+	[master 7d52963] removing first.txt
+ 	1 file changed, 0 insertions(+), 0 deletions(-)
+ 	delete mode 100644 first.txt
+13)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git log
+	commit 7d52963715f0d99dc6d1fdc4b905ce0337b9b973 (HEAD -> master)
+	Author: Ostap Ohorodnyk <ostap.ohorodnyk@gmail.com>
+	Date:   Mon Nov 29 20:57:49 2021 +0200
+
+    		  removing first.txt
+
+	commit e63a2b178d3e554314d57871f74fb5813e9fbafb
+	Author: Ostap Ohorodnyk <ostap.ohorodnyk@gmail.com>
+	Date:   Mon Nov 29 20:53:58 2021 +0200
+
+  		  adding second.txt
+
+	commit 1a717e167d18ca724d0d7dc483b361cbb565fd67
+	Author: Ostap Ohorodnyk <ostap.ohorodnyk@gmail.com>
+	Date:   Mon Nov 29 20:47:54 2021 +0200
+
+  		  adding first.txt
+14)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git push origin master
+	Enumerating objects: 7, виконано.
+	Підрахунок об’єктів: 100% (7/7), виконано.
+	Delta compression using up to 8 threads
+	Стиснення об’єктів: 100% (4/4), виконано.
+	Запис об’єктів: 100% (7/7), 660 bytes | 660.00 KiB/s, виконано.
+	Total 7 (delta 0), reused 0 (delta 0)
+	To github.com:ohorodnykostap/cursor-hw.git
+	 * [new branch]      master -> master
+15)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git branch first
+	ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git branch 
+ 	 first
+	* master
+16)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git checkout -b second
+	Перейшов до нової гілки «second»
+
+17)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ echo 'Hello' > second.txt
+	ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ cat second.txt
+		Hello
+18)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git stash
+	Saved working directory and index state WIP on second: 7d52963 removing first.txt
+	ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git checkout first
+	Перейшов до гілки «first»
+19)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git stash pop
+	На гілці second
+	Зміни не споряджені для коміту
+ 	 (використовуйте "git add <file>..." щоб оновити дані, котрі будуть збережені в 		коміті)
+	  (use "git restore <file>..." to discard changes in working directory)
+	змінено:       second.txt
+	жодних зміни у коміт не додано (використовуйте «git add» та/або «git commit -a»)
+	Dropped refs/stash@{0} (fd53aca1e0dd5b5e18d22f83c38865467a3d367e)
+20)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$  git add second.txt
+21)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git commit -m"Changing second.txt"
+	[second 7bd04f8] Changing second.txt
+	 1 file changed, 1 insertion(+)
+22)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$  git push --set-upstream origin second
+
+	Enumerating objects: 5, виконано.
+	Підрахунок об’єктів: 100% (5/5), виконано.
+	Запис об’єктів: 100% (3/3), 264 bytes | 264.00 KiB/s, виконано.
+	Total 3 (delta 0), reused 0 (delta 0)
+	remote: 
+	remote: Create a pull request for 'second' on GitHub by visiting:
+	remote:      https://github.com/ohorodnykostap/cursor-hw/pull/new/second
+	remote: 
+	To github.com:ohorodnykostap/cursor-hw.git
+	 * [new branch]      second -> second
+	Гілка «second» відслідковує зовнішню гілку «second» з «origin».
+23)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git checkout first
+	Перейшов до гілки «first»
+24)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ echo 'Cursor' > second.txt
+	ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ cat second.txt 
+		Cursor
+25)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git add second.txt
+	ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git status
+	На гілці first
+	Зміни, що мають бути збережені в коміті
+	  (use "git restore --staged <file>..." to unstage)
+		змінено:       second.txt
+26)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git commit -m"Changing second.txt"
+	[first 4844598] Changing second.txt
+	 1 file changed, 1 insertion(+)
+27)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git push --set-upstream origin first
+ 
+	Enumerating objects: 5, виконано.
+	ідрахунок об’єктів: 100% (5/5), виконано.
+	Запис об’єктів: 100% (3/3), 264 bytes | 264.00 KiB/s, виконано.
+	Total 3 (delta 0), reused 0 (delta 0)
+	remote: 
+	remote: Create a pull request for 'first' on GitHub by visiting:
+	remote:      https://github.com/ohorodnykostap/cursor-hw/pull/new/first
+	remote: 
+	To github.com:ohorodnykostap/cursor-hw.git
+	 * [new branch]      first -> first
+	Гілка «first» відслідковує зовнішню гілку «first» з «origin».
+28)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git checkout master
+	Перейшов до гілки «master»
+29)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git merge second
+	Оновлення 7d52963..7bd04f8
+	Fast-forward
+	 second.txt | 1 +
+	 1 file changed, 1 insertion(+)
+30)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git merge first
+	Автоматичне злиття second.txt
+	КОНФЛІКТ (вміст): Конфлікт злиття в second.txt
+	Не вдалося провести автоматичне злиття; виправте конфлікти й зробіть коміт результату.
+31)ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ git push origin master
+	Enumerating objects: 8, виконано.
+	Підрахунок об’єктів: 100% (8/8), виконано.
+	Delta compression using up to 8 threads
+	Стиснення об’єктів: 100% (2/2), виконано.
+	Запис об’єктів: 100% (4/4), 541 bytes | 541.00 KiB/s, виконано.
+	Total 4 (delta 0), reused 0 (delta 0)
+	To github.com:ohorodnykostap/cursor-hw.git
+	   eab6f61..1984f73  master -> master
+	ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ ssh-keygen -t ed25519 -C "ostap.ohorodnyk@gmail.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/ostap/.ssh/id_ed25519): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/ostap/.ssh/id_ed25519
+Your public key has been saved in /home/ostap/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:gXLzaHYMAobKvTTvw9W1jJhHvjBp5Nrc7AsYT7PLGVQ ostap.ohorodnyk@gmail.com
+The key's randomart image is:
++--[ED25519 256]--+
+| .o              |
+|.. .   .         |
+|o . o = .E       |
+|.. + + B.o .     |
+|  . +.*+S + .    |
+|   . +*@o= o     |
+|    o.*=* .      |
+|     =.o=+       |
+|      .+.o.      |
++----[SHA256]-----+
+ostap@ostap-Lenovo-V15-IIL:~/cursor_git_hw$ 
+
