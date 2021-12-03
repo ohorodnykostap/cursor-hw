@@ -120,8 +120,91 @@ print(dict_comprehension)
 
 #16. Convert (5) to regular for with if.
 
+x = {}
 for num in range(10):
     if num ** 3 % 4 == 0:
         x[num] = num ** 3
 print(x)
             #{0: 0, 2: 8, 4: 64, 6: 216, 8: 512}
+
+# 17*. Convert (6) to regular for with if-else.
+
+d = {}
+for x in range(10):
+    if x**3 % 4 == 0:
+        d[x] = x**3
+    else:
+        d[x] = x
+print(d)
+            # {0: 0, 1: 1, 2: 8, 3: 3, 4: 64, 5: 5, 6: 216, 7: 7, 8: 512, 9: 9}
+
+# 18. Convert (7) to lambda function
+
+foo = lambda x, y: x if x < y else y
+print(foo(4, 3))
+            # 3
+
+# 19*. Convert (8) to regular function
+
+def foo(x, y, z):
+    if x < y and x > z:
+        return z
+    else:
+        return y
+
+print(foo(1, 2, 3))
+            # 2
+
+# 20. Sort lst_to_sort from min to max
+
+lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
+print(sorted(lst_to_sort))
+            # [1, 5, 13, 15, 18, 24, 33, 55]
+
+# 21. Sort lst_to_sort from max to min
+
+lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
+print(sorted(lst_to_sort, reverse=True))
+            # [55, 33, 24, 18, 15, 13, 5, 1]
+
+# 22. Use map and lambda to update the lst_to_sort by multiply each element by 2
+new_lst_to_sort = list(map(lambda x: x * 2, lst_to_sort))
+print(new_lst_to_sort)
+            # [10, 36, 2, 48, 66, 30, 26, 110]
+
+            # [10, 36, 2, 48, 66, 30, 26, 110]
+
+# 23*. Raise each list number to the corresponding number on another list:
+
+list_A = [2, 3, 4]
+list_B = [5, 6, 7]
+up_number = list(map(lambda x, y: x+y, list_A, list_B))
+print(up_number)
+            # [7, 9, 11]
+
+# 24. Use reduce and lambda to compute the numbers of a lst_to_sort.
+
+from  functools import reduce
+foo = reduce(lambda x,y: x+y, lst_to_sort)
+print(foo)
+            # 164
+
+# 25. Use filter and lambda to filter the number of a lst_to_sort with elem % 2 == 1.
+new_list = list(filter(lambda x: (x % 2 == 1), lst_to_sort))
+print(new_list)
+            # [5, 1, 33, 15, 13, 55]
+
+# 26. Considering the range of values: b = range(-10, 10), use the function filter to return only negative numbers.
+
+lst_neg = list(filter(lambda x: x < 0, range(-10, 10)))
+print(lst_neg)
+
+            # [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1]
+
+# 27*. Using the filter function, find the values that are common to the two lists:
+
+list_1 = [1, 2, 3, 5, 7, 9]
+list_2 = [2, 3, 5, 6, 7, 8]
+list_3 = list(filter(lambda x: x in list_1, list_2))
+print(list_3)
+            # [2, 3, 5, 7]
