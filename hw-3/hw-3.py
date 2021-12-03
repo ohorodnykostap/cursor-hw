@@ -172,8 +172,6 @@ new_lst_to_sort = list(map(lambda x: x * 2, lst_to_sort))
 print(new_lst_to_sort)
             # [10, 36, 2, 48, 66, 30, 26, 110]
 
-            # [10, 36, 2, 48, 66, 30, 26, 110]
-
 # 23*. Raise each list number to the corresponding number on another list:
 
 list_A = [2, 3, 4]
