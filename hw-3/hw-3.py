@@ -176,9 +176,9 @@ print(new_lst_to_sort)
 
 list_A = [2, 3, 4]
 list_B = [5, 6, 7]
-up_number = list(map(lambda x, y: x+y, list_A, list_B))
+up_number = list(map(lambda x, y: x**y, list_A, list_B))
 print(up_number)
-            # [7, 9, 11]
+            # [[32, 729, 16384]
 
 # 24. Use reduce and lambda to compute the numbers of a lst_to_sort.
 
