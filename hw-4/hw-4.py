@@ -34,8 +34,8 @@ print(type(my_bus))
 
 # 4. Create an instance of Bus named school_bus and determine if school_bus is also an instance of the Vehicle class
 School_bus = Bus(100, 110, 50)
-print(isinstance(Bus, Vehicle))
-        # falce
+print(isinstance(School_bus, Vehicle))
+        # True
 
 # 5. Create a new class School with get_school_id and number_of_students instance attributes
 
