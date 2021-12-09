@@ -47,15 +47,15 @@ class School:
 # 6*. Create a new class SchoolBus that will inherit all the methods from School and Bus and will have its own - bus_school_color
 
 class SchoolBus(School, Bus):
-    def __init__(self, max_speed, mileage, capacity, School_Bus_color, number_of_students, get_school_id):
+    def __init__(self, max_speed, mileage, capacity, school_bus_color, number_of_students, get_school_id):
         Bus.__init__(self, max_speed, mileage, capacity)
         School.__init__(self, get_school_id, number_of_students)
-        self.School_Bus_color = School_Bus_color
+        self.school_bus_color = school_bus_color
     def bus_color(self):
         print(f'Bus color is {self.capacity}.')
 
 bus_2 = SchoolBus(130, 222000, 'RED', 50, 28, 123 )
-print(bus_2.max_speed, bus_2.mileage,bus_2.number_of_students, bus_2.School_Bus_color)
+print(bus_2.max_speed, bus_2.mileage,bus_2.number_of_students, bus_2.school_bus_color)
 bus_2.bus_color()
 
 # 7.
@@ -81,7 +81,7 @@ for sound in animals:
                 # rrrrrr
                 # aaauuuu
 # # 8
-# class City:
+# class City():
 #     def __init__(self, name, population):
 #         self.name = name
 #         self.population = population
