@@ -47,12 +47,17 @@ class School:
 # 6*. Create a new class SchoolBus that will inherit all the methods from School and Bus and will have its own - bus_school_color
 
 class SchoolBus(School, Bus):
-    def __init__(self, max_speed, mileage, seating_capacity, bus_school_color):
-        super().__init__(max_speed, mileage, seating_capacity)
-        self.bus_school_color = bus_school_color
+    def __init__(self, max_speed, mileage, capacity, School_Bus_color, number_of_students, get_school_id):
+        Bus.__init__(self, max_speed, mileage, capacity)
+        School.__init__(self, get_school_id, number_of_students)
+        self.School_Bus_color = School_Bus_color
+    def bus_color(self):
+        print(f'Bus color is {self.capacity}.')
 
-    def bus_school_color(self):
-        print(f'Bus color is {self.bus_school_color}.')
+bus_2 = SchoolBus(130, 222000, 'RED', 50, 28, 123 )
+print(bus_2.max_speed, bus_2.mileage,bus_2.number_of_students, bus_2.School_Bus_color)
+bus_2.bus_color()
+
 # 7.
 class Bear:
     def __init__(self, sound):
@@ -75,23 +80,23 @@ for sound in animals:
     print(sound.make_sound())
                 # rrrrrr
                 # aaauuuu
-# 8
-class City:
-    def __init__(self, name, population):
-        self.name = name
-        self.population = population
-
-    def check_population(self):
-        if self.population > 1500:
-            return self.population
-        else:
-            return (f'Your city {self.name} is too small')
-
-
-Lviv = City( 'Lviv', 1000000)
-Pidbirchi = City('Pidbirchi', 3500)
-all_cities = (Lviv, Pidbirchi)
-
-
-for i in all_cities:
-    print(i.check_population())
+# # 8
+# class City:
+#     def __init__(self, name, population):
+#         self.name = name
+#         self.population = population
+#
+#     def check_population(self):
+#         if self.population > 1500:
+#             return self.population
+#         else:
+#             return (f'Your city {self.name} is too small')
+#
+#
+# Lviv = City( 'Lviv', 1000000)
+# Pidbirchi = City('Pidbirchi', 3500)
+# all_cities = (Lviv, Pidbirchi)
+#
+#
+# for i in all_cities:
+#     print(i.check_population())
