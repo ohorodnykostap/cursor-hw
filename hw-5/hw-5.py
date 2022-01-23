@@ -185,4 +185,4 @@ class Student:
 
 student = Student(12, 'Ostap')
 setattr(student, 'email', 'Ostap@gmail.com')
-print(getattr(student, 'email'))
+print(getattr(stxudent, 'email'))
